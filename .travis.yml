@@ -15,10 +15,15 @@ env:
   global:
     - OUTPUT_DIR=build/outputs
     - OUTPUT_ZIP=b2-sdk-build-${TRAVIS_BUILD_NUMBER}.zip
+    - PATH=/opt/python/3.7.1/bin:$PATH
 
 before_install:
   - mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-  - sudo pip install b2
+  - python -VV
+  - python3 -VV
+  - pip -V
+  - pip3 -V
+  - python3 -m pip install b2
 
 script:
   #
